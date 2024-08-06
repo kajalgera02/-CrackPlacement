@@ -1,0 +1,23 @@
+long long findMinDiff(vector<long long> a, long long n, long long m) {
+    if (m == 0 || n == 0) {
+        return 0;
+    }
+    
+    sort(a.begin(), a.end());
+    
+    if (m > n) {
+        return -1;
+    }
+    
+    long long minDiff = LLONG_MAX;
+    
+    // Iterate over all possible subarrays of length m
+    for (int i = 0; i <= n - m; i++) {
+        long long diff = a[i + m - 1] - a[i];
+        if (diff < minDiff) {
+            minDiff = diff;
+        }
+    }
+    
+    return minDiff;
+}
