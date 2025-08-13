@@ -1,0 +1,43 @@
+class ArrayStack {
+private:
+   int *arr;
+   int size;
+   int topIndex;
+public:
+    ArrayStack() {
+        topIndex=-1;
+        size=1000;
+        arr= new int[size];
+    }
+    
+    void push(int x) {
+      if(topIndex>=size-1){
+        return ;
+      }  
+      topIndex++;
+      arr[topIndex]=x;
+    }
+    
+    int pop() {
+       if(isEmpty()){
+        return -1;
+       } 
+       int x=arr[topIndex];
+       topIndex--;
+       return x;
+    }
+    
+    int top() {
+        if(isEmpty()){
+        return -1;
+       } 
+      return arr[topIndex];
+    }
+    
+    bool isEmpty() {
+      if(topIndex==-1){
+        return true;
+      }
+      return false;
+    }
+};
